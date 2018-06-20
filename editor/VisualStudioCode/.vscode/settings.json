@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/CVE-*.json"
+            ],
+            "url": "./vdo_schema.json"
+        },
+    ]
+}

@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle vdo-schema-provider",
+        "command": "vdo-schema-provider:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "vdo-schema-provider",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "vdo-schema-provider:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

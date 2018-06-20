@@ -1,0 +1,822 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "vdo",
+  "description": "A representation of Vulnerability Description Ontology",
+  "type": "object",
+  "properties": {
+    "Vulnerability": {
+      "type": "object",
+      "properties": {
+        "VulnID": {
+          "type": "object",
+          "properties": {
+            "CVE": {
+              "type": "string",
+              "default": ""
+            },
+            "JVN": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        },
+        "SectorOfInterest": {
+          "type": "string",
+          "default": ""
+        },
+        "KnownChain": {
+          "type": "string",
+          "default": ""
+        },
+        "Provenance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "default": ""
+              },
+              "url": {
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "Scenario": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "VulnType": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "CWE": {
+                      "type": "string",
+                      "default": "",
+                      "enum": [
+                        "CWE-502: Deserialization of Untrusted Data",
+                        "CWE-287: Improper Authentication",
+                        "CWE-330: Use of Insufficiently Random Values",
+                        "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')",
+                        "CWE-306: Missing Authentication for Critical Function",
+                        "CWE-321: Use of Hard-coded Cryptographic Key",
+                        "CWE-798: Use of Hard-coded Credentials",
+                        "CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion')",
+                        "CWE-255: CATEGORY: Credentials Management",
+                        "CWE-285: Improper Authorization",
+                        "CWE-94: Improper Control of Generation of Code ('Code Injection')",
+                        "CWE-434: Unrestricted Upload of File with Dangerous Type",
+                        "CWE-121: Stack-based Buffer Overflow",
+                        "CWE-264: CATEGORY: Permissions, Privileges, and Access Controls",
+                        "CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer",
+                        "CWE-284: Improper Access Control",
+                        "CWE-200: Information Exposure",
+                        "CWE-20: Improper Input Validation",
+                        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+                        "CWE-295: Improper Certificate Validation",
+                        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+                        "CWE-352: Cross-Site Request Forgery (CSRF)",
+                        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+                        "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                        "CWE-426: Untrusted Search Path (DLL pre-loading)",
+                        "CWE-Other"
+                      ]
+                    }
+                  }
+                }
+              },
+              "Product": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "VendorName": {
+                      "type": "string",
+                      "default": ""
+                    },
+                    "ProductName": {
+                      "type": "string",
+                      "default": ""
+                    },
+                    "Version": {
+                      "type": "string",
+                      "default": ""
+                    }
+                  }
+                }
+              },
+              "AttackTheater": {
+                "type": "object",
+                "properties": {
+                  "Remote": {
+                    "type": "object",
+                    "properties": {
+                      "RemoteType": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "RemoteType": {
+                              "type": "string",
+                              "enum": [
+                                "Internet",
+                                "Intranet",
+                                "Local Network"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "LimitedRemote": {
+                    "type": "object",
+                    "properties": {
+                      "LimitedRemoteType": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "LimitedRemoteType": {
+                              "type": "string",
+                              "enum": [
+                                "Cellular",
+                                "Wireless",
+                                "Bluetooth",
+                                "Infrared",
+                                "Line-of-Sight"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Local": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "Physical": {
+                    "type": "string",
+                    "default": ""
+                  }
+                }
+              },
+              "Barrier": {
+                "type": "object",
+                "properties": {
+                  "SocialEngineering": {
+                    "type": "object",
+                    "properties": {
+                      "EngineeringMethod": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "EngineeringMethod": {
+                              "type": "string",
+                              "enum": [
+                                "Malicious Link",
+                                "Malicious File",
+                                "Malicious Website Content",
+                                "Malicious Application"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "VictimType": {
+                        "type": "object",
+                        "properties": {
+                          "ID": {
+                            "type": "integer",
+                            "title": "The Id Schema ",
+                            "default": 0,
+                            "enum": [
+                              1
+                            ]
+                          },
+                          "PrivilegeLevel": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "PrivilegeLevel": {
+                                  "type": "string",
+                                  "enum": [
+                                    "Anonymous",
+                                    "User",
+                                    "Privileged",
+                                    "Administrator",
+                                    "GenericTrust"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "RaceCondition": {
+                    "type": "object",
+                    "properties": {
+                      "RaceConditionType": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "RaceConditionType": {
+                              "type": "string",
+                              "enum": [
+                                "No Control",
+                                "Partial Control",
+                                "Full Control"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "SpecializedCondition": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "EnvironmentalCondition": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "PreconditionRequired": {
+                    "type": "string",
+                    "default": ""
+                  },
+                  "PrivilegeRequired": {
+                    "type": "object",
+                    "properties": {
+                      "PrivilegeLevel": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "PrivilegeLevel": {
+                              "type": "string",
+                              "enum": [
+                                "Anonymous",
+                                "User",
+                                "Privileged",
+                                "Administrator",
+                                "GenericTrust"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "PrivilegeInformation": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "PrivilegeInformation": {
+                              "type": "integer",
+                              "enum": [
+                                0,
+                                1
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Context": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ContextType": {
+                      "type": "object",
+                      "properties": {
+                        "Hypervisor": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "Firmware": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "Host OS": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "Guest OS": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "Application": {
+                          "type": "object",
+                          "properties": {
+                            "ApplicationType": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "ApplicationType": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Web Server",
+                                      "Database",
+                                      ""
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Channel": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "PhysicalHardware": {
+                          "type": "string",
+                          "default": ""
+                        }
+                      }
+                    },
+                    "EntityRole": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "EntityRole": {
+                            "type": "string",
+                            "enum": [
+                              "Vulnerable",
+                              "Primary Authorization",
+                              "Secondary Authorization"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "Mitigation": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Mitigation": {
+                            "type": "string",
+                            "enum": [
+                              "ASLR",
+                              "Multi-Factor Authentication",
+                              "Sanboxed",
+                              "HPKP/HSTS",
+                              "Physical Security"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "ImpactMethod": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ContextEscape": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "TrustFailure": {
+                            "type": "object",
+                            "properties": {
+                              "TrustFailureType": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "TrustFailureType": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Failure to verify receiver",
+                                        "Failure to verify transmitter",
+                                        "Failure to verify content",
+                                        "Failure to establish trust"
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "AuthenticationBypass": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "Man-in-the-Middle": {
+                            "type": "string",
+                            "default": ""
+                          },
+                          "CodeExecution": {
+                            "type": "string",
+                            "default": ""
+                          }
+                        }
+                      }
+                    },
+                    "LogicalImpact": {
+                      "type": "object",
+                      "properties": {
+                        "None": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "WriteDirect": {
+                          "type": "object",
+                          "properties": {
+                            "Scope": {
+                              "type": "object",
+                              "properties": {
+                                "Limited": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Criticality": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Criticality": {
+                                            "type": "string",
+                                            "enum": [
+                                              "Low",
+                                              "High"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Unlimited": {
+                                  "type": "string",
+                                  "default": ""
+                                }
+                              }
+                            },
+                            "Location": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Location": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Memory",
+                                      "File System",
+                                      "Network Traffic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "ReadDirect": {
+                          "type": "object",
+                          "properties": {
+                            "Scope": {
+                              "type": "object",
+                              "properties": {
+                                "Limited": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Criticality": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Criticality": {
+                                            "type": "string",
+                                            "enum": [
+                                              "Low",
+                                              "High"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Unlimited": {
+                                  "type": "string",
+                                  "default": ""
+                                }
+                              }
+                            },
+                            "Location": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Location": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Memory",
+                                      "File System",
+                                      "Network Traffic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "ResourceRemoval": {
+                          "type": "object",
+                          "properties": {
+                            "Scope": {
+                              "type": "object",
+                              "properties": {
+                                "Limited": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Criticality": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Criticality": {
+                                            "type": "string",
+                                            "enum": [
+                                              "Low",
+                                              "High"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Unlimited": {
+                                  "type": "string",
+                                  "default": ""
+                                }
+                              }
+                            },
+                            "Location": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Location": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Memory",
+                                      "File System",
+                                      "Network Traffic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "ServiceInterrupt": {
+                          "type": "object",
+                          "properties": {
+                            "ServiceInterruptType": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "ServiceInterruptType": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Shutdown",
+                                      "Reboot",
+                                      "Hang",
+                                      "Panic",
+                                      "Unrecoverable"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "Scope": {
+                              "type": "object",
+                              "properties": {
+                                "Limited": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Criticality": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Criticality": {
+                                            "type": "string",
+                                            "enum": [
+                                              "Low",
+                                              "High"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Unlimited": {
+                                  "type": "string",
+                                  "default": ""
+                                }
+                              }
+                            },
+                            "Location": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Location": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Memory",
+                                      "File System",
+                                      "Network Traffic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "IndirectDisclosure": {
+                          "type": "object",
+                          "properties": {
+                            "Scope": {
+                              "type": "object",
+                              "properties": {
+                                "Limited": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Criticality": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Criticality": {
+                                            "type": "string",
+                                            "enum": [
+                                              "Low",
+                                              "High"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Unlimited": {
+                                  "type": "string",
+                                  "default": ""
+                                }
+                              }
+                            },
+                            "Location": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Location": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Memory",
+                                      "File System",
+                                      "Network Traffic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "PrivilegeEscalation": {
+                          "type": "object",
+                          "properties": {
+                            "Scope": {
+                              "type": "object",
+                              "properties": {
+                                "Limited": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Criticality": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Criticality": {
+                                            "type": "string",
+                                            "enum": [
+                                              "Low",
+                                              "High"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Unlimited": {
+                                  "type": "string",
+                                  "default": ""
+                                }
+                              }
+                            },
+                            "Location": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Location": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Memory",
+                                      "File System",
+                                      "Network Traffic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "PhysicalImpact": {
+                      "type": "object",
+                      "properties": {
+                        "PhysicalResourceConsumption": {
+                          "type": "object",
+                          "properties": {
+                            "PhysicalConsumptionType": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "PhysicalConsumptionType": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Electricity",
+                                      "Water",
+                                      "Assets"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "PropertyDamage": {
+                          "type": "string",
+                          "default": ""
+                        },
+                        "HumanInjury": {
+                          "type": "object",
+                          "properties": {
+                            "HumanInjuryLevel": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "HumanInjuryLevel": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Negligible",
+                                      "Minor",
+                                      "Serious",
+                                      "Critical",
+                                      "Catastrophic"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

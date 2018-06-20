@@ -1,0 +1,25 @@
+{
+  "name": "vdo-schema-provider",
+  "main": "./lib/vdo-schema-provider",
+  "version": "0.0.1",
+  "description": "VDO JSON Schema Provider",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "vdo-schema-provider:toggle"
+  },
+  "repository": "https://github.com/atom/vdo-schema-provider",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "file-url": "^2.0.2"
+  },
+  "providedServices": {
+    "jsonschema.provider": {
+      "versions": {
+        "1.0.0": "provideVdoSchema"
+      }
+    }
+  }
+}
