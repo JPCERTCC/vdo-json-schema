@@ -6,7 +6,7 @@ Vulnerability Description Ontology (VDO) is a framework for describing vulnerabi
 
 VDO JSON Schema displays possible autocomplete suggestions and inserts a suggestion in an editor that can understand the structure of JSON Schema.
 
-![autocompletion-demo](https://github.com/JPCERTCC/vdo-study/wiki/images/cve-2014-8606_02.mov.gif)
+![autocompletion-demo](https://github.com/JPCERTCC/vdo-json-schema/wiki/images/cve-2014-8606_02.mov.gif)
 
 ## Getting started
 
